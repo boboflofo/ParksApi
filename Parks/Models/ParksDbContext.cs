@@ -7,6 +7,7 @@ namespace Parks.Models
     {
       
         public DbSet<NationalPark> NationalParks { get; set; }
+        public DbSet<StatePark> StateParks { get; set; }
         public ParksDbContext(DbContextOptions options) : base(options) { }
   protected override void OnModelCreating(ModelBuilder builder)
     {
