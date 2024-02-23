@@ -75,5 +75,19 @@ namespace Parks.Controllers
     {
       return _db.NationalParks.Any(e => e.NationalParkId == id);
     }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteNationalPark(int id)
+    {
+      NationalPark nationalpark = await _db.NationalParks.FindAsync(id);
+      if (nationalpark == null)
+      {
+        return NotFound();
+      }
+
+      _db.NationalParks.Remove(nationalpark);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
+    }
   }
 }
