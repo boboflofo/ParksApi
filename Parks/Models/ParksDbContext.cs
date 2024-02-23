@@ -19,8 +19,8 @@ namespace Parks.Models
         );
       builder.Entity<NationalPark>()
         .HasData(
-          new NationalPark { NationalParkId = 3, Name = "Volcano"},
-          new NationalPark { NationalParkId = 4, Name = "Ocean"}
+          new NationalPark { NationalParkId = 1, Name = "Volcano"},
+          new NationalPark { NationalParkId = 2, Name = "Ocean"}
         );
     }
     }

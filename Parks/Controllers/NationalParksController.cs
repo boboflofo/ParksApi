@@ -41,5 +41,39 @@ namespace Parks.Controllers
       await _db.SaveChangesAsync();
       return CreatedAtAction(nameof(GetNationalPark), new { id = nationalpark.NationalParkId }, nationalpark);
     }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Put(int id, NationalPark nationalpark)
+    {
+      if (id != nationalpark.NationalParkId)
+      {
+        return BadRequest();
+      }
+
+      _db.NationalParks.Update(nationalpark);
+
+      try
+      {
+        await _db.SaveChangesAsync();
+      }
+      catch (DbUpdateConcurrencyException)
+      {
+        if (!NationalParkExists(id))
+        {
+          return NotFound();
+        }
+        else
+        {
+          throw;
+        }
+      }
+
+      return NoContent();
+    }
+
+    private bool NationalParkExists(int id)
+    {
+      return _db.NationalParks.Any(e => e.NationalParkId == id);
+    }
   }
 }
