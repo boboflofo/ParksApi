@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Parks.Models;
 
@@ -10,9 +11,10 @@ using Parks.Models;
 namespace Parks.Migrations
 {
     [DbContext(typeof(ParksDbContext))]
-    partial class ParksDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240223215701_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
