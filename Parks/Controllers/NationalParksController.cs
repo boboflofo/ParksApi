@@ -16,10 +16,17 @@ namespace Parks.Controllers
     }
 
 
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<NationalPark>>> Get()
+     [HttpGet]
+    public async Task<ActionResult<IEnumerable<NationalPark>>> Get(string name)
     {
-      return await _db.NationalParks.ToListAsync();
+      IQueryable<NationalPark> query = _db.NationalParks.AsQueryable();
+
+      if (name != null)
+      {
+        query = query.Where(entry => entry.Name == name);
+      }
+
+      return await query.ToListAsync();
     }
 
     [HttpGet("{id}")]

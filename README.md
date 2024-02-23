@@ -53,8 +53,21 @@ $ dotnet ef database update
   }
 }
 ```
+* Under the line above, configure JWT by adding the following code and editing
+```
+"JWT": {
+    "ValidAudience": "example-audience",
+    "ValidIssuer": "example-issuer",
+    "Secret": "SecretPassword12"
+  }
+
+```
 * Create a **.gitignore** file and add **obj, bin, and appsettings.json** to ensure personal data is not imported to github
 * Finally, run the project using command **dotnet run**
+
+## API endpoints and Authentication with JWT
+
+
 
 
 ## Known Bugs
