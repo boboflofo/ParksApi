@@ -34,5 +34,12 @@ namespace Parks.Controllers
 
       return nationalpark;
     }
+     [HttpPost]
+    public async Task<ActionResult<NationalPark>> Post(NationalPark nationalpark)
+    {
+      _db.NationalParks.Add(nationalpark);
+      await _db.SaveChangesAsync();
+      return CreatedAtAction(nameof(GetNationalPark), new { id = nationalpark.NationalParkId }, nationalpark);
+    }
   }
 }
