@@ -76,8 +76,8 @@ public async Task<IActionResult> SignIn(SignInDto userInfo)
 
             var newToken = CreateToken(authClaims);
 
-            return Ok(new { status = "success", message = $"{userInfo.Email} signed in", token = newToken })
-        }
+            return Ok(new { status = "success", message = $"{userInfo.Email} signed in", token = newToken });
+        };
     }
     return BadRequest(new { status = "error", message = "Unable to sign in" });
 }
