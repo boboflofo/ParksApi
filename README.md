@@ -67,7 +67,43 @@ $ dotnet ef database update
 
 ## API endpoints and Authentication with JWT
 
+* Account Controllers and Model are set up with endpoints in which API are made
+* Testing endpoints can be used with Postman
+* Download the latest version of Postman to test and utilize API calls [link](https://www.postman.com/downloads/)
+* Firstly, Authentication with JWT token authentication is primarily used to securely transfer information between users, tokens are here to confirm identity
+* With the API set up with authentication, users can register and sign in with unique tokens
+* API endpoints for authentication can be sent through POST requests on Postman, for example through this URL `http://localhost:5000/accounts/register` to register an account
+* The body of the post request should look like this 
+```
+{ 
+    "email": "jon@test.com",
+    "userName": "jon",
+    "Password": "Test1234!" 
+}
 
+```
+* To sign in through a POST request use URL `http://localhost:5000/accounts/signin` with body 
+
+```
+{ 
+    "email": "jon@test.com",
+    "Password": "Test1234!" 
+}
+
+```
+* Ensure that the token from the signin POST request is inputted into the Auth tab in Postman
+
+* To access data from the NationalPark or StatePark database, a get, post, put, or delete request can be sent through POSTMAN
+
+* EX: `http://localhost:5000/stateparks` is used as an endpoint with a GET request to access all the stateparks 
+
+* EX: `http://localhost:5000/stateparks/1` is used as an endpoint with a GET request to access a specific statepark with body
+
+* EX: `http://localhost:5000/stateparks/` is used as an endpoint with a POST request to add an entry to the stateparks database 
+
+* EX: `http://localhost:5000/stateparks/1` is used as an endpoint with a PUT request to edit an entry to the stateparks database **note the body should contain the specific ID as well**
+
+* EX: `http://localhost:5000/stateparks/1` is used as an endpoint with a DELETE request to delete an entry to the stateparks database
 
 
 ## Known Bugs
